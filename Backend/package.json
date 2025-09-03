@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "frontend-build": "cd ../frontend && npm install && npm run build",
+    "backend-build": "npm install",
+    "build": "npm run frontend-build && npm run backend-build",
+    "dev":   "nodemon server.js"
   },
   "keywords": [],
   "author": "",

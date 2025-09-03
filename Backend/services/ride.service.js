@@ -42,6 +42,18 @@ async function getFare(pickup, destination) {
 
 }
 
+
+async function getDistance(pickup, destination) {
+
+    if (!pickup || !destination) {
+        throw new Error('Pickup and destination are required');
+    }
+
+    const distanceTime = await mapService.getDistanceTime(pickup, destination);
+    const distanceInKm = (distanceTime.distance.value / 1000).toFixed(2);
+    return distanceInKm;
+}
+
 module.exports.getFare = getFare;
 
 
@@ -70,6 +82,7 @@ module.exports.createRide = async ({
         pickup,
         destination,
         otp: getOtp(6),
+        distance: await getDistance(pickup, destination),
         fare: fare[ vehicleType ]
     })
 
