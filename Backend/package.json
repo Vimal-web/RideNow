@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "frontend-build": "cd ../frontend && npm install && npm run build",
+"frontend-build": "cd ../frontend && npm install && chmod +x ./node_modules/.bin/vite && npm run build",
     "backend-build": "npm install",
     "build": "npm run frontend-build && npm run backend-build",
     "dev":   "nodemon server.js"
